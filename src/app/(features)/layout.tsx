@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import Header from "@/components/common/Header";
+import ThemeProvider from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "HB SOFT - Portfolio",
@@ -15,10 +16,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <Header />
           {children}
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );
